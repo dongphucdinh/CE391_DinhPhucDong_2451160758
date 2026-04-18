@@ -42,3 +42,33 @@ Trang web bị đánh giá SEO chưa tốt vì đang mắc lỗi **Div Soup** (l
 
 - Thiếu thẻ `article`
 - Cách sửa: Một sản phẩm là nội dung độc lập nên dùng thẻ `<article>` để tăng ý nghĩa ngữ nghĩa.
+#### Sửa lại :
+```html
+<header>
+    <div class="logo">ShopTLU</div>
+    <nav>
+        <ul>
+            <li><a href="/">Trang chủ</a></li>
+            <li><a href="/products">Sản phẩm</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <article class="product">
+        <h2>iPhone 16 Pro</h2>
+        <p class="price">25.990.000đ</p>
+
+        <figure class="image">
+            <img src="https://th.bing.com/th/id/OIP.26BTLmqIr5wvgVH2n6QWhAHaHa?w=189&h=189&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
+                 alt="iPhone 16 Pro màu Titan tự nhiên">
+
+            <figcaption>Mẫu iPhone mới nhất 2026</figcaption>
+        </figure>
+    </article>
+</main>
+
+<footer>
+    <p>© 2026 ShopTLU</p>
+</footer>
+```
