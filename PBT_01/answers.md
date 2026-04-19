@@ -98,3 +98,37 @@ Trang web bị đánh giá SEO chưa tốt vì đang mắc lỗi **Div Soup** (l
 - Lý do 1: Không thân thiện với SEO và Screen Readers
 - Lý do 2: Khó khăn trong việc Responsive (Hiển thị di động)
 - Lý do 3: Tốc độ tải trang và hiệu suất (Performance)
+### Lỗi của Bài B3 : 
+- Lỗi 1: Dòng 1 — `<!DOCTYPE>` thiếu kiểu tài liệu HTML — Sửa thành `<!DOCTYPE html>`.
+
+- ỗi 2: Dòng 2 — Thẻ `<html>` thiếu thuộc tính ngôn ngữ — Sửa thành `<html lang="vi">`.
+
+- Lỗi 3: Dòng 4 — Thẻ `<title>` chưa đóng — Thêm `</title>`.
+
+- Lỗi 4: Dòng 5 — charset viết sai utf8 — Sửa thành UTF-8.
+
+- Lỗi 5: Trong head thiếu meta viewport — Thêm thẻ viewport.
+
+- Lỗi 6: Dòng 8 — Thẻ `<h1>` đóng sai cú pháp — Sửa thành `</h1>`.
+
+- Lỗi 7: Dòng 12 — Thẻ `<a>` đầu tiên chưa đóng — Thêm `</a>`.
+
+- Lỗi 8: Dòng 12-13 — href chưa đúng chuẩn liên kết nội bộ — Sửa thành #home, #products.
+
+- Lỗi 9: Dòng 18 — Dùng `<h3>` chưa hợp lý cho tiêu đề section — Đổi thành `<h2>`.
+
+- Lỗi 10: Dòng 19 — img thiếu dấu ngoặc kép và thiếu alt — Bổ sung đầy đủ.
+
+- Lỗi 11: Dòng 21 — Đóng thẻ sai thứ tự giữa `<p>` và `<b>` — Sửa thành `<p><strong>...</strong></p>`.
+
+- Lỗi 12: Dòng 26-33 — Table thiếu thead và tbody — Bổ sung cấu trúc chuẩn.
+
+- Lỗi 13: Dòng 28-29 — Ô tiêu đề bảng dùng td thay vì th — Đổi thành th.
+
+- Lỗi 14: Dòng 37 — Có 2 thẻ main trong trang — Đổi main thứ hai thành aside.
+
+- Lỗi 15: Dòng 42 — Thẻ `<p>` trong footer chưa đóng — Thêm `</p>`.
+
+- Lỗi 16: Phần sản phẩm thiếu semantic ảnh — Bọc img bằng figure + figcaption.
+
+- Lỗi 17: Dòng 45 — Sau thẻ `</body>` thiếu thẻ đóng tài liệu `</html>` — Thêm `</html>` ở cuối file.
