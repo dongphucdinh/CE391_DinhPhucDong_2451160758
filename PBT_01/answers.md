@@ -86,3 +86,15 @@ Trang web bị đánh giá SEO chưa tốt vì đang mắc lỗi **Div Soup** (l
 `span` và `strong` là phần tử inline
 - Không xuống dòng.
 - Hiển thị nối tiếp nhau trên cùng dòng.
+## CÂU A4:
+### Giải thích sự khác nhau :
+- `thead` Chứa các tiêu đề của cột (thường dùng thẻ <th> bên trong).
+- Đặc điểm: Giúp trình duyệt và các thiết bị đọc màn hình (Screen Reader) hiểu được ý nghĩa của dữ liệu bên dưới. Khi in một bảng dài ra nhiều trang giấy, một số trình duyệt sẽ tự động lặp lại `thead` ở đầu mỗi trang.
+- `tbody` Mục đích: Chứa nội dung dữ liệu chính của bảng (thường dùng thẻ <td>).
+- Đặc điểm: Một bảng có thể có nhiều `tbody` để phân nhóm dữ liệu. Đây là phần chiếm diện tích lớn nhất.
+- `tfoot`Mục đích: Chứa thông tin tổng kết (ví dụ: Tổng tiền, Tổng số lượng, Ghi chú cuối bảng).
+- Đặc điểm: Tương tự như header, khi in ấn, phần footer có thể được lặp lại ở cuối mỗi trang giấy.
+### Tại sao không nên dùng Table để tạo layout trong web:
+- Lý do 1: Không thân thiện với SEO và Screen Readers
+- Lý do 2: Khó khăn trong việc Responsive (Hiển thị di động)\
+- Lý do 3: Tốc độ tải trang và hiệu suất (Performance)
