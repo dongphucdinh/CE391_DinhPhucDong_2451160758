@@ -74,11 +74,11 @@ Trang web bị đánh giá SEO chưa tốt vì đang mắc lỗi **Div Soup** (l
 ```
 ## Câu A3:
 ### Mô tả từng dòng :
-[Dòng 1] Hộp 1
-[Dòng 2] Text A Text B
-[Dòng 3] Hộp 2
-[Dòng 4] Text C Text D
-[Dòng 5] Hộp 3
+- **[Dòng 1]** Hộp 1
+- **[Dòng 2]** Text A | Text B
+- **[Dòng 3]** Hộp 2
+- **[Dòng 2]** Text C | Text D
+- **[Dòng 3]** Hộp 3
 ### Giải thích :
 - `div` là phần tử block
 - Chiếm toàn bộ chiều ngang có sẵn.
