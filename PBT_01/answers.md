@@ -153,3 +153,98 @@ Tìm thấy form tìm kiếm sản phẩm ở phần đầu trang Shopee
 Input types được dùng:
 - text / search (ô nhập từ khóa)
 - submit (nút tìm kiếm)
+
+### Phần C
+#### Câu C1:
+```<body>
+
+<header> <!-- phần đầu trang -->
+    <nav> <!-- menu điều hướng -->
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Điện thoại</a></li>
+            <li><a href="#">Phụ kiện</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main> <!-- nội dung chính -->
+
+    <nav aria-label="breadcrumb"> <!-- breadcrumb là điều hướng -->
+        <ol> <!-- có thứ tự cấp bậc -->
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Điện thoại</a></li>
+            <li>iPhone 16</li>
+        </ol>
+    </nav>
+
+    <section> <!-- khu vực chi tiết sản phẩm -->
+
+        <section> <!-- khu vực ảnh sản phẩm -->
+            <ul>
+                <li><img src="#" alt="Ảnh 1"></li>
+                <li><img src="#" alt="Ảnh 2"></li>
+                <li><img src="#" alt="Ảnh 3"></li>
+                <li><img src="#" alt="Ảnh 4"></li>
+                <li><img src="#" alt="Ảnh 5"></li>
+            </ul>
+        </section>
+
+        <article> <!-- thông tin sản phẩm độc lập -->
+            <h1>iPhone 16</h1>
+            <p>Giá</p>
+            <p>Đánh giá sao</p>
+            <p>Mô tả sản phẩm</p>
+        </article>
+
+        <section> <!-- bảng thông số -->
+            <h2>Thông số kỹ thuật</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Thuộc tính</th>
+                        <th>Giá trị</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Màn hình</td>
+                        <td>6.1 inch</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section> <!-- khu vực đánh giá -->
+            <h2>Đánh giá / Bình luận</h2>
+
+            <article> <!-- mỗi bình luận độc lập -->
+                <h3>Người dùng A</h3>
+                <p>Rất tốt</p>
+            </article>
+
+            <article>
+                <h3>Người dùng B</h3>
+                <p>Hài lòng</p>
+            </article>
+        </section>
+
+    </section>
+
+    <aside> <!-- nội dung phụ -->
+        <h2>Sản phẩm tương tự</h2>
+        <ul>
+            <li><a href="#">iPhone 15</a></li>
+            <li><a href="#">Samsung S24</a></li>
+            <li><a href="#">Xiaomi 14</a></li>
+        </ul>
+    </aside>
+
+</main>
+
+<footer> <!-- chân trang -->
+    <p>Bản quyền website</p>
+</footer>
+
+</body>
+```
