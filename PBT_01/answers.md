@@ -132,3 +132,24 @@ Trang web bị đánh giá SEO chưa tốt vì đang mắc lỗi **Div Soup** (l
 - Lỗi 16: Phần sản phẩm thiếu semantic ảnh — Bọc img bằng figure + figcaption.
 
 - Lỗi 17: Dòng 45 — Sau thẻ `</body>` thiếu thẻ đóng tài liệu `</html>` — Thêm `</html>` ở cuối file.
+
+## Bài B4 Semantic HTML5
+1.
+- `<header>` : phần đầu trang Shopee (thanh trên cùng)
+- `<section>` : khu vực chia nội dung trang
+- `<footer>` : phần cuối trang chứa thông tin website
+2.
+- Shopee không dùng thẻ `<table>`, chủ yếu dùng div + CSS layout.
+3.
+### Form
+
+Tìm thấy form tìm kiếm sản phẩm ở phần đầu trang Shopee
+
+- action: Không thấy khai báo trực tiếp 
+- method: Không thấy khai báo trực tiếp
+- role: search
+- autocomplete: off
+
+Input types được dùng:
+- text / search (ô nhập từ khóa)
+- submit (nút tìm kiếm)
