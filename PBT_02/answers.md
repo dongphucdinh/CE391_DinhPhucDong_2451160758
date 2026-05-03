@@ -72,3 +72,21 @@ Cải thiện:
 - "" (alt rỗng)
 - Ảnh biểu đồ doanh thu Q1/2026:
 - "Biểu đồ doanh thu quý 1 năm 2026, tăng dần từ tháng 1 đến tháng 3"
+#### Câu A5:
+- Khi dùng Cách 1 (<img>):
+- Khi ảnh đứng độc lập, không cần mô tả thêm ngoài alt
+Đặc điểm:
+Đơn giản, nhẹ
+Chỉ mang tính hiển thị
+Ví dụ:
+Ảnh thumbnail sản phẩm trong danh sách (grid sản phẩm)
+Icon/logo nhỏ trong header hoặc footer
+- Khi dùng Cách 2 (<figure> + <figcaption>):
+- Khi ảnh có chú thích (caption) hoặc cần ngữ nghĩa rõ ràng
+Đặc điểm:
+Semantic tốt hơn
+Caption hiển thị cho người dùng
+Tốt cho accessibility & nội dung có ý nghĩa
+Ví dụ:
+Trang chi tiết sản phẩm (ảnh + tên + giá)
+Ảnh minh họa bài blog (kèm mô tả bên dưới)
