@@ -26,3 +26,19 @@ Không submit được, lỗi sai định dạng , yêu cầu điền 10 chữ n
 ````<!-- Trường hợp 5 -->
 <input type="password" minlength="8" value="123">  <!-- User gõ "123" -->````
 Không submit được, min yêu cầu nhập 8 kí tự nhưng chỉ nhập 3
+````
+#### Câu A3:
+1. `<label for="email">` quan trọng vì:
+
+- Giúp screen reader đọc tên của input
+- Người dùng biết ô đó dùng để nhập gì (ví dụ: “Email”)
+- Không có label → không hiểu nội dung input
+2. Khi nào dùng `<fieldset>` + `<legend>`
+- Khi có nhóm input liên quan
+ Ví dụ: nhóm chọn phương thức thanh toán (radio)
+`<legend>` mô tả ý nghĩa chung của nhóm
+3. aria-label dùng khi nào?
+- Dùng khi không có text hiển thị (ví dụ: icon button)
+Tại sao KHÔNG dùng aria-label khi đã có `<label>`?
+- Vì `<label>` đã đủ semantic
+- Dùng thêm aria-label có thể gây trùng hoặc rối thông tin
