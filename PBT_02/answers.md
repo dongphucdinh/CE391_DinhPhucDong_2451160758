@@ -42,3 +42,33 @@ Không submit được, min yêu cầu nhập 8 kí tự nhưng chỉ nhập 3
 Tại sao KHÔNG dùng aria-label khi đã có `<label>`?
 - Vì `<label>` đã đủ semantic
 - Dùng thêm aria-label có thể gây trùng hoặc rối thông tin
+
+#### Câu A4:
+1. loading="lazy" là gì?
+- Trì hoãn tải ảnh cho đến khi ảnh gần xuất hiện trong viewport
+Cải thiện:
+- Tăng tốc độ load trang ban đầu
+- Giảm băng thông
+- Tốt cho performance (đặc biệt trang nhiều ảnh như e-commerce)
+- KHÔNG nên dùng khi:
+Ảnh above-the-fold (ảnh đầu trang, banner, hero)
+- vì cần hiển thị ngay, không nên delay
+2. Tại sao dùng nhiều <source> trong <video>?
+- Vì các trình duyệt hỗ trợ format video khác nhau
+- Cung cấp nhiều nguồn để đảm bảo video luôn chạy
+3. format phổ biến:
+- MP4 (video/mp4)
+- WebM (video/webm)
+- Ogg (video/ogg)
+4. Thuộc tính alt dùng để làm gì?
+- Mô tả nội dung ảnh cho:
+- Screen reader (accessibility)
+- Hiển thị khi ảnh lỗi
+- Hỗ trợ SEO
+- Viết alt cho từng trường hợp:
+- Ảnh sản phẩm iPhone 16:
+- "iPhone 16 màu đen, góc nhìn mặt trước và sau"
+- Ảnh trang trí (decorative):
+- "" (alt rỗng)
+- Ảnh biểu đồ doanh thu Q1/2026:
+- "Biểu đồ doanh thu quý 1 năm 2026, tăng dần từ tháng 1 đến tháng 3"
