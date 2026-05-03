@@ -248,3 +248,13 @@ Input types được dùng:
 
 </body>
 ```
+#### C2
+Ý kiến “chỉ dùng <div> cho mọi thứ rồi thêm class là đủ” nghe có vẻ tiện lúc đầu, nhưng về kỹ thuật thì không tối ưu. Semantic HTML tồn tại để mô tả đúng ý nghĩa nội dung, giúp trình duyệt, công cụ tìm kiếm và công nghệ hỗ trợ hiểu cấu trúc trang tốt hơn.
+
+Lý do đầu tiên là SEO. Công cụ tìm kiếm không chỉ đọc chữ mà còn phân tích cấu trúc HTML để xác định phần nào quan trọng. Ví dụ, tiêu đề bài viết nên dùng <h1>, khu vực điều hướng dùng <nav>, nội dung chính dùng <main>. Nếu tất cả đều là <div>, bot tìm kiếm khó nhận biết đâu là nội dung chính, đâu là menu hay quảng cáo. Điều này có thể làm giảm khả năng lập chỉ mục và xếp hạng trang.
+
+Lý do thứ hai là Accessibility. Người dùng sử dụng screen reader cần các mốc cấu trúc để điều hướng nhanh. Khi dùng <header>, <nav>, <main>, <footer>, họ có thể nhảy trực tiếp đến phần mong muốn thay vì nghe đọc toàn bộ trang. Nếu chỉ dùng <div>, trải nghiệm sẽ kém hơn nhiều, đặc biệt với người khiếm thị.
+
+Ví dụ cụ thể: một website bán hàng có thanh menu danh mục. Nếu dùng <nav>, screen reader sẽ thông báo đây là vùng điều hướng, còn bot tìm kiếm hiểu đây là menu chính. Nếu thay bằng <div class="menu">, ý nghĩa đó bị mất, chỉ còn hình thức.
+
+Tuy vậy, <div> vẫn rất phù hợp trong các trường hợp không mang ý nghĩa nội dung, chẳng hạn dùng làm container để chia layout, nhóm các card sản phẩm, tạo grid, flexbox hoặc bọc các phần tử để áp CSS/JavaScript. Nói ngắn gọn: semantic HTML dùng cho ý nghĩa nội dung, còn <div> dùng cho bố cục và nhóm phần tử. Kết hợp cả hai mới là cách làm chuyên nghiệp.
