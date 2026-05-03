@@ -90,3 +90,71 @@ Tốt cho accessibility & nội dung có ý nghĩa
 Ví dụ:
 Trang chi tiết sản phẩm (ảnh + tên + giá)
 Ảnh minh họa bài blog (kèm mô tả bên dưới)
+
+#### BÀI C1:
+- Lỗi 1: Dòng 2 — Input "Tên" không có <label for> (accessibility)
+Sửa:
+`<label for="name">Tên:</label>`
+`<input type="text" id="name" name="name" required>`
+- Lỗi 2: Dòng 4 — Input email không có label
+Sửa:
+`<label for="email">Email:</label>`
+`<input type="email" id="email" name="email" required placeholder="Email của bạn">`\
+- Lỗi 3: Dòng 6 — Password không có <label>
+Sửa:
+`<label for="password">Mật khẩu:</label>`
+`<input type="password" id="password" name="password" required minlength="8">`
+- Lỗi 4: Dòng 7 — Confirm password không có <label>
+Sửa:
+`<label for="confirm">Nhập lại mật khẩu:</label>`
+`<input type="password" id="confirm" name="confirm" required minlength="8">`
+- Lỗi 5 (mới): Dòng 9 — Phone dùng sai type (text thay vì tel)
+Sửa:
+`<label for="phone">Số điện thoại:</label>`
+`<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="0901234567">`
+- Lỗi 6: Dòng 11 — <select> không có <label>
+Sửa:
+`<label for="city">Thành phố:</label>`
+`<select id="city" name="city">`
+- Lỗi 7: Dòng 16 — Checkbox thiếu <input>
+Sửa:
+````<label>
+    <input type="checkbox" name="agree" required>
+    Tôi đồng ý điều khoản
+</label>
+````
+- Lỗi 8: Dòng 1 — <form> thiếu action và method
+Sửa:
+`<form action="#" method="POST">`
+
+#### Bài C2:
+1. Regex pattern
+- CMND/CCCD (12 chữ số):
+````
+pattern="[0-9]{12}"
+````
+- Số tài khoản (10–15 chữ số):
+````
+pattern="[0-9]{10,15}"
+````
+2. HTML5 validation có đủ an toàn cho ngân hàng không?
+Không đủ an toàn
+Vì:
+- Chỉ chạy ở frontend (trình duyệt)
+- Có thể bị bypass (tắt validation, sửa request, dùng tool như Postman)
+- Không kiểm soát logic phức tạp hoặc dữ liệu thật
+HTML5 chỉ giúp UX, không phải bảo mật
+3. 3 loại validation HTML5 KHÔNG làm được
+- So sánh giữa nhiều field
+Ví dụ: confirm password phải giống password
+- Kiểm tra dữ liệu từ server
+Email đã tồn tại chưa?
+Số tài khoản có hợp lệ trong hệ thống không?
+- Logic phức tạp
+Ví dụ: kiểm tra CMND theo checksum / thuật toán
+Điều kiện phụ thuộc nhiều trường
+4. 2 rủi ro nếu chỉ validate frontend
+- Bypass validation → gửi dữ liệu sai/độc hại
+- Hacker có thể gửi request trực tiếp (không qua form)
+- Injection / tấn công hệ thống
+- Nếu backend không kiểm tra → dễ bị SQL Injection / dữ liệu rác
