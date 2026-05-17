@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">DinhPhucDong</div>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon"></label>
+
+        <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Hi, I'm <span class="highlight">DinhPhucDong</span></h1>
+            <p>Full-Stack Developer | UI Designer | Problem Solver</p>
+            <a href="#portfolio" class="cta-button">View My Work</a>
+        </section>
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://i.pinimg.com/originals/7b/5e/0f/7b5e0fa2886f3ba3ca9795b08910868e.jpg"
+                            alt="Profile Photo">
+                    </div>
+                    <div class="about-content">
+                        <h2>About Me</h2>
+                        <p class="lead">I'm a developer with ... years of experience building web applications.</p>
+                        <p>Specialized in Frontend development with React and Vue. Also experienced in Backend with
+                            Node.js and Python. I believe in clean code, user-centered design, and continuous learing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2>My Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML5</span>
+                            <span>18%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 18%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">CSS3</span>
+                            <span>5%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 5%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span>4%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 4%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">React</span>
+                            <span>36%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 36%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <h2>My Portfolio</h2>
+
+                <div class="portfolio-filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Web</button>
+                    <button class="filter-btn">Mobile</button>
+                    <button class="filter-btn">Design</button>
+                </div>
+
+                <div class="portfolio-grid">
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox-1">
+                            <img src="https://i.pinimg.com/736x/aa/d7/19/aad71927284cdac8ec8564c66073604c.jpg">
+                        </a>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox-2">
+                            <img src="https://pbs.twimg.com/media/GoZkGUlWgAAT3l8.jpg">
+                        </a>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox-3">
+                            <img src="https://backiee.com/static/wallpapers/456x257/404060.jpg">
+                        </a>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox-4">
+                            <img
+                                src="https://img.magnific.com/premium-photo/cute-anime-girl-wallpaper_776894-107578.jpg">
+                        </a>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox-5">
+                            <img
+                                src="https://wallpapers-clan.com/wp-content/uploads/2024/06/anime-girl-with-sword-red-desktop-wallpaper-cover.jpg">
+                        </a>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <a href="#lightbox-6">
+                            <img src="https://4kwallpapers.com/images/wallpapers/hatsune-miku-3840x2160-22725.jpg">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <div id="lightbox-1" class="lightbox">
+            <img src="https://i.pinimg.com/736x/aa/d7/19/aad71927284cdac8ec8564c66073604c.jpg">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+
+        <div id="lightbox-2" class="lightbox">
+            <img src="https://pbs.twimg.com/media/GoZkGUlWgAAT3l8.jpg">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+
+        <div id="lightbox-3" class="lightbox">
+            <img src="https://backiee.com/static/wallpapers/456x257/404060.jpg">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+
+        <div id="lightbox-4" class="lightbox">
+            <img src="https://img.magnific.com/premium-photo/cute-anime-girl-wallpaper_776894-107578.jpg">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+
+        <div id="lightbox-5" class="lightbox">
+            <img
+                src="https://wallpapers-clan.com/wp-content/uploads/2024/06/anime-girl-with-sword-red-desktop-wallpaper-cover.jpg">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+
+        <div id="lightbox-6" class="lightbox">
+            <img src="https://4kwallpapers.com/images/wallpapers/hatsune-miku-3840x2160-22725.jpg">
+            <a href="#" class="lightbox-close">&times;</a>
+        </div>
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>Feel free to reach out. I'm always open to discussing new projects.</p>
+                        <div class="info-item">
+                            <span class="icon">📧</span>
+                            <span>gnodnortside@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">📍</span>
+                            <span>Hanoi, Vietnam</span>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Dong Phuc Dinh</div>
+                <p class="footer-tagline">Building digital experiences</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/" class="social-link" aria-label="Facebook" target="_blank">
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+                    <a href="https://linkedin.com/" class="social-link" aria-label="LinkedIn" target="_blank">
+
+                        <i class="fa-brands fa-linkedin-in"></i>
+
+                    </a>
+
+                    <a href="https://github.com/" class="social-link" aria-label="GitHub" target="_blank">
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 YourName. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
