@@ -193,3 +193,23 @@ p.price        → (0, 1, 1)
    - .navbar a:hover
    - tbody tr:nth-child(even)
    - tbody tr:hover
+#### Câu B2
+
+## Phần 1: Content-box vs Border-box
+- Hộp 1 (content-box): Chiều rộng thực tế = 300 + 20*2 + 5*2 = 350px
+- Hộp 2 (border-box): Chiều rộng thực tế = 300px
+## Phần 2: Layout 3 cột
+Không dùng border-box
+`Sidebar: 250 + 15*2 = 280px`
+`Content: 500 + 20*2 = 540px`
+`Ads: 250 + 15*2 = 280px`
+Tổng:280 + 540 + 280 = 1100px
+Vì container chỉ rộng 1000px, layout sẽ bị vỡ hoặc tràn ra ngoài.
+- Có dùng border-box
+````
+Sidebar = 250px
+Content = 500px
+Ads = 250px
+````
+Tổng: 250 + 500 + 250 = 1000px
+Vì dùng box-sizing: border-box, padding được tính bên trong width nên layout vừa đúng container.
