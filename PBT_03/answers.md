@@ -165,3 +165,31 @@ p.price        → (0, 1, 1)
 - Là đỏ, vì: `#main-price { color: red; }`
 - Nếu thêm inline style: `<p class="price" id="main-price" style="color: orange;">` Element có màu cam, vì inline style mạnh hơn CSS selector thường
 - Nếu Rule A thêm !important: `p { color: black !important; }` Element có màu đen, vì !important được ưu tiên hơn rule thường, dù selector p yếu hơn #main-price
+#### Câu B1 - Selectors đã sử dụng
+
+1. Element selector:
+   - body
+   - table
+   - th
+   - td
+   - footer
+
+2. Class selector:
+   - .navbar
+   - .card
+   - .active
+
+3. ID selector:
+   - #top-header
+   - #ve-toi
+   - #ky-nang
+   - #lien-he
+
+4. Descendant selector:
+   - .navbar a
+   - tbody tr
+
+5. Pseudo-class selector:
+   - .navbar a:hover
+   - tbody tr:nth-child(even)
+   - tbody tr:hover
