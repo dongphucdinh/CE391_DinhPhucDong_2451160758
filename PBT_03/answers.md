@@ -271,3 +271,52 @@ Thứ tự chỉ có tác dụng khi hai rule có specificity bằng nhau.
 ````
 - Hai rule này đều có specificity (0,1,0), nên rule viết sau sẽ thắng.
 - Chạy lên trình duyệt sẽ thấy chữ **Hello World** màu `crimson`.
+#### Câu C1 
+
+## 1. Tính chiều rộng thực tế
+
+- Vì mặc định là `content-box`: Chiều rộng thực tế = width + padding trái/phải + border trái/phải
+- Sidebar: 300 + 20*2 + 1*2 = 342px
+- Content: 660 + 30*2 + 1*2 = 722px
+- Tổng: 342 + 722 = 1064px
+2. Vì sao layout bị vỡ?
+Container chỉ rộng 960px, nhưng tổng chiều rộng thật của sidebar và content là 1064px.
+1064px > 960px
+Vì vậy content không đủ chỗ nằm cạnh sidebar nên bị đẩy xuống dòng mới.
+3. Cách sửa 1: Dùng border-box
+Thêm:
+````
+.fix-border-box .sidebar,
+.fix-border-box .content {
+    box-sizing: border-box;
+}
+````
+- Khi đó:
+Sidebar = 300px
+Content = 660px
+Tổng = 960px
+Layout vừa khít container.
+4. Cách sửa 2: Không dùng border-box
+Giữ content-box, nhưng giảm width phần content bên trong.
+- Sidebar cần tổng 300px:
+width + 20*2 + 1*2 = 300
+width + 42 = 300
+width = 258px
+- Content cần tổng 660px:
+width + 30*2 + 1*2 = 660
+width + 62 = 660
+width = 598px
+Vậy sửa thành:
+````
+.fix-content-box .sidebar {
+    width: 258px;
+}
+
+.fix-content-box .content {
+    width: 598px;
+}
+````
+- Khi đó:
+Sidebar thực tế = 300px
+Content thực tế = 660px
+Tổng = 960px
