@@ -147,3 +147,21 @@ Nâng cao
 `.box-a { margin-bottom: -10px; }`
 `.box-b { margin-top: 40px; }`
 - Khoảng cách: 40 + (-10) = 30px
+#### Câu A4
+- Specificity dạng (a, b, c)
+````
+p              → (0, 0, 1)  
+.price         → (0, 1, 0)  
+#main-price    → (1, 0, 0)  
+p.price        → (0, 1, 1)  
+````
+- Trong đó:
+
+- a = số id
+- b = số class
+- c = số thẻ HTML
+
+- Màu cuối cùng của element: `<p class="price" id="main-price">`
+- Là đỏ, vì: `#main-price { color: red; }`
+- Nếu thêm inline style: `<p class="price" id="main-price" style="color: orange;">` Element có màu cam, vì inline style mạnh hơn CSS selector thường
+- Nếu Rule A thêm !important: `p { color: black !important; }` Element có màu đen, vì !important được ưu tiên hơn rule thường, dù selector p yếu hơn #main-price
