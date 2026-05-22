@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+}
+
+p {
+    color: black;              
+}
+
+.text {
+    color: blue;              
+}
+
+.highlight {
+    color: green;              
+}
+
+p.text {
+    color: purple;            
+}
+
+p.highlight {
+    color: brown;              
+}
+
+.text.highlight {
+    color: orange;             
+}
+
+p.text.highlight {
+    color: pink;              
+}
+
+#demo {
+    color: red;                
+}
+
+p#demo {
+    color: teal;               
+}
+
+#demo.text.highlight {
+    color: crimson;            
+}

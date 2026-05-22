@@ -213,3 +213,61 @@ Ads = 250px
 ````
 Tổng: 250 + 500 + 250 = 1000px
 Vì dùng box-sizing: border-box, padding được tính bên trong width nên layout vừa đúng container.
+#### Câu B3
+## 10 CSS rules từ thấp đến cao
+1. `p`
+   - Specificity: `(0,0,1)`
+   - Color: black
+2. `.text`
+   - Specificity: `(0,1,0)`
+   - Color: blue
+3. `.highlight`
+   - Specificity: `(0,1,0)`
+   - Color: green
+4. `p.text`
+   - Specificity: `(0,1,1)`
+   - Color: purple
+5. `p.highlight`
+   - Specificity: `(0,1,1)`
+   - Color: brown
+6. `.text.highlight`
+   - Specificity: `(0,2,0)`
+   - Color: orange
+7. `p.text.highlight`
+   - Specificity: `(0,2,1)`
+   - Color: pink
+8. `#demo`
+   - Specificity: `(1,0,0)`
+   - Color: red
+9. `p#demo`
+   - Specificity: `(1,0,1)`
+   - Color: teal
+10. `#demo.text.highlight`
+   - Specificity: `(1,2,0)`
+   - Color: crimson
+## Element cuối cùng hiển thị màu gì?
+- Element hiển thị màu **crimson**.
+- Vì rule:
+````css
+#demo.text.highlight {
+    color: crimson;
+}
+````
+- có specificity cao nhất là (1,2,0).
+Nó mạnh hơn tất cả các rule còn lại.
+- Thay đổi thứ tự rules thì kết quả có đổi không?
+Không đổi, nếu rule #demo.text.highlight vẫn tồn tại.
+Lý do: CSS ưu tiên rule có specificity cao hơn trước.
+Thứ tự chỉ có tác dụng khi hai rule có specificity bằng nhau.
+- Ví dụ:
+````
+.text {
+    color: blue;
+}
+
+.highlight {
+    color: green;
+}
+````
+- Hai rule này đều có specificity (0,1,0), nên rule viết sau sẽ thắng.
+- Chạy lên trình duyệt sẽ thấy chữ **Hello World** màu `crimson`.
