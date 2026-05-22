@@ -320,3 +320,40 @@ Vậy sửa thành:
 Sidebar thực tế = 300px
 Content thực tế = 660px
 Tổng = 960px
+#### CÂU C2
+````
+“Sản phẩm A” h2:
+font-size = 20px
+color = green
+````
+- Vì:
+font-size lấy từ .card .title { font-size: 20px; }
+color đáng lẽ #featured .title { color: red; }
+nhưng .highlight { color: green !important; } mạnh hơn vì có !important
+````
+“Mô tả sản phẩm” p trong featured:
+color = blue
+````
+- Vì:
+.card { color: blue; }
+.card p { color: inherit; }
+inherit nghĩa là lấy màu từ cha gần nhất
+cha của <p> là .card, nên màu là blue
+````
+“Sản phẩm B” h2:
+font-size = 20px
+color = blue
+````
+- Vì:
+font-size lấy từ .card .title
+không có #featured
+không có .highlight
+nên color kế thừa từ .card { color: blue; }
+````
+“Mô tả sản phẩm B” p.highlight:
+color = green
+````
+- Vì:
+.card p { color: inherit; } muốn lấy màu blue
+nhưng .highlight { color: green !important; } mạnh hơn
+nên màu cuối cùng là green
