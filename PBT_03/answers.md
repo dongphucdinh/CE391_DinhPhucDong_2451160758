@@ -121,12 +121,29 @@ p {
 - Rule nào mạnh hơn sẽ được dùng
 - Nếu bằng nhau thì rule viết sau thắng
 - Inline CSS có specificity cao hơn internal và external nên thường “thắng”.
-##### Bài A2:
-- 1. h1 Chọn: ShopTLU
-- 2. price Chọn: 25.990.000đ, 45.990.000đ
-- 3. #app header Chọn: ShopTLU, Home, Products, About
-- 4. nav a:first-child Chọn: Home
-- 5. .product.featured h2 Chọn: MacBook Pro
-- 6. article > p Chọn: 25.990.000đ Mô tả sản phẩm... 45.990.000đ Mô tả sản phẩm...
-- 7. a[href="/"] Chọn: Home
-- 8. .top-bar.dark h1 Chọn: ShopTLU
+##### Câu A2:
+- h1 Chọn: ShopTLU
+- price Chọn: 25.990.000đ, 45.990.000đ
+- #app header Chọn: ShopTLU, Home, Products, About
+- nav a:first-child Chọn: Home
+- product.featured h2 Chọn: MacBook Pro
+- article > p Chọn: 25.990.000đ Mô tả sản phẩm... 45.990.000đ Mô tả sản phẩm...
+- a[href="/"] Chọn: Home
+- .top-bar.dark h1 Chọn: ShopTLU
+#### Câu A3:
+Trường hợp 1: `content-box`
+`width = content`
+- Chiều rộng hiển thị: 400 + 20×2 + 5×2 = 450px
+- Không gian chiếm trên trang: 450 + 10×2 = 470px
+Trường hợp 2: `border-box`
+`width = content + padding + border`
+- Kích thước content thực tế: 400 - 20×2 - 5×2 = 350px
+- Không gian chiếm trên trang: 400 + 10×2 = 420p
+Trường hợp 3: `Margin collapse`
+`.box-a { margin-bottom: 25px; }`
+`.box-b { margin-top: 40px; }`
+- Khoảng cách giữa 2 box: 40px : Không phải 65px vì margin dọc của 2 block bị collapse, CSS lấy margin lớn hơn, không cộng lại.
+Nâng cao
+`.box-a { margin-bottom: -10px; }`
+`.box-b { margin-top: 40px; }`
+- Khoảng cách: 40 + (-10) = 30px
