@@ -333,3 +333,174 @@ Nên dùng:
 $primary
 ```
 thay vì override từng class riêng lẻ để giữ hệ thống theme Bootstrap đồng nhất và dễ bảo trì.
+# Câu C2 — So sánh CSS thuần và Bootstrap
+## 1. CSS thuần: Navbar responsive + product card
+### HTML
+```html
+<nav class="navbar">
+    <div class="logo">MyShop</div>
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+
+    <button class="menu-btn">☰</button>
+</nav>
+<div class="product-card">
+    <img src="https://via.placeholder.com/300x200" alt="Product">
+    <div class="card-body">
+        <h3>Sản phẩm A</h3>
+        <p>Giá: 299.000đ</p>
+        <button>Mua ngay</button>
+    </div>
+</div>
+```
+### CSS thuần
+```css
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    background-color: #1f2937;
+    color: white;
+    padding: 16px 32px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+.menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+.menu a:hover {
+    color: #facc15;
+    text-decoration: underline;
+}
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+}
+.product-card {
+    width: 300px;
+    margin: 30px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+.product-card img {
+    width: 100%;
+    display: block;
+}
+.card-body {
+    padding: 16px;
+}
+.card-body p {
+    color: red;
+    font-weight: bold;
+}
+.card-body button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.card-body button:hover {
+    background-color: #1d4ed8;
+}
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+    .menu-btn {
+        display: block;
+    }
+    .product-card {
+        width: calc(100% - 32px);
+        margin: 16px;
+    }
+}
+```
+---
+## 2. Bootstrap version
+### HTML Bootstrap
+```html
+<nav class="navbar navbar-expand-md navbar-dark bg-dark px-4">
+    <a class="navbar-brand fw-bold" href="#">MyShop</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="card m-4 shadow" style="width: 18rem;">
+    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product">
+    <div class="card-body">
+        <h5 class="card-title">Sản phẩm A</h5>
+        <p class="card-text text-danger fw-bold">Giá: 299.000đ</p>
+        <button class="btn btn-primary w-100">Mua ngay</button>
+    </div>
+</div>
+```
+---
+## 3. So sánh
+| Tiêu chí | CSS thuần | Bootstrap |
+|---|---|---|
+| Số dòng CSS cần viết | Nhiều, khoảng 70–100 dòng | Rất ít hoặc gần như 0 dòng CSS |
+| Thời gian phát triển | Lâu hơn vì phải tự viết layout, responsive, hover | Nhanh hơn vì có class sẵn |
+| Khả năng tùy biến | Cao, kiểm soát toàn bộ giao diện | Nhanh nhưng dễ giống Bootstrap nếu không custom |
+| Responsive | Phải tự viết media query | Có sẵn grid, navbar collapse, breakpoint |
+| Component | Tự code từ đầu | Có sẵn card, navbar, button, modal, dropdown |
+---
+## 4. Khi nào NÊN dùng Bootstrap?
+Nên dùng Bootstrap khi:
+- Cần làm nhanh project
+- Làm landing page, admin dashboard, prototype
+- Muốn responsive nhanh
+- Không cần design quá khác biệt
+- Team muốn dùng component có sẵn
+Ví dụ:
+```text
+Dashboard quản trị, form đăng nhập, trang bán hàng đơn giản
+```
+---
+## 5. Khi nào KHÔNG NÊN dùng Bootstrap?
+Không nên dùng Bootstrap khi:
+- Website cần thiết kế rất riêng, khác biệt nhiều
+- Muốn tối ưu CSS cực nhẹ
+- Dự án yêu cầu design system riêng
+- Không muốn phụ thuộc framework
+- Cần animation/layout custom phức tạp
+Ví dụ:
+```text
+Portfolio sáng tạo, website thương hiệu cao cấp, UI game, landing page design độc lạ
+```
