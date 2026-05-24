@@ -408,3 +408,152 @@ YouTube sử dụng responsive design để thay đổi layout theo kích thư�
 - Desktop: hiện sidebar và nhiều cột video
 - Navigation thay đổi từ đầy đủ sang dạng rút gọn
 - Một số thành phần bị ẩn trên mobile để tiết kiệm không gian
+
+# Câu C2 — Thiết kế Responsive Strategy
+## 1. Mobile
+### Wireframe
+```text
++----------------------+
+| Logo                 |
+| SĐT đặt bàn           |
++----------------------+
+| Hero image           |
++----------------------+
+| Form đặt bàn         |
+| - Ngày               |
+| - Giờ                |
+| - Số người           |
+| - Ghi chú            |
++----------------------+
+| Grid ảnh món ăn      |
+| 1 cột                |
++----------------------+
+| Google Maps          |
++----------------------+
+| Footer               |
++----------------------+
+```
+### Phân tích
+- Header xếp dọc hoặc logo trái, số điện thoại dưới.
+- Form đặt bàn nằm ngay sau hero để người dùng dễ đặt bàn.
+- Grid ảnh món ăn hiển thị 1 cột.
+- Google Maps nằm dưới form và ảnh.
+- Có thể ẩn bớt menu navigation nếu có, chỉ giữ logo và số điện thoại.
+## 2. Tablet
+### Wireframe
+```text
++--------------------------------+
+| Logo              SĐT đặt bàn   |
++--------------------------------+
+| Hero image                     |
++--------------------------------+
+| Form đặt bàn                   |
++--------------------------------+
+| Grid ảnh món ăn                |
+| 2 cột                          |
++--------------------------------+
+| Google Maps                    |
++--------------------------------+
+| Footer                         |
++--------------------------------+
+```
+### Phân tích
+- Header chuyển sang nằm ngang.
+- Form vẫn ưu tiên đặt ở phía trên.
+- Grid ảnh món ăn chia 2 cột.
+- Google Maps nằm dưới grid ảnh hoặc dưới form.
+- Không cần sidebar.
+## 3. Desktop
+### Wireframe
+```text
++--------------------------------------------------+
+| Logo                              SĐT đặt bàn     |
++--------------------------------------------------+
+| Hero image toàn trang                            |
++--------------------------------------------------+
+|  Form đặt bàn        |  Google Maps              |
+|  Ngày, giờ, số người |                           |
+|  Ghi chú             |                           |
++--------------------------------------------------+
+| Grid ảnh món ăn                                  |
+| 3 cột hoặc 6 cột                                |
++--------------------------------------------------+
+| Footer                                           |
++--------------------------------------------------+
+```
+### Phân tích
+- Desktop dùng layout 2 cột cho form và bản đồ.
+- Form đặt bàn nằm bên trái.
+- Google Maps nằm bên phải.
+- Grid ảnh món ăn hiển thị 3 cột hoặc 6 cột.
+- Không cần sidebar vì nội dung chính đã đủ rõ ràng.
+## 4. CSS Skeleton Mobile-First
+```css
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.header {
+    display: grid;
+    gap: 8px;
+    padding: 16px;
+}
+.hero {
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+.main {
+    display: grid;
+    gap: 24px;
+    padding: 16px;
+}
+.booking-form {
+    display: grid;
+    gap: 12px;
+}
+.food-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+.map {
+    min-height: 300px;
+}
+.footer {
+    padding: 20px;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .header {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+    }
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) {
+    .main {
+        max-width: 1200px;
+        margin: 0 auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "form map"
+            "gallery gallery";
+    }
+    .booking-form {
+        grid-area: form;
+    }
+    .map {
+        grid-area: map;
+    }
+    .food-grid {
+        grid-area: gallery;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+```
