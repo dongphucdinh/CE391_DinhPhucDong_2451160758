@@ -312,3 +312,99 @@ Lệnh đã sử dụng để biên dịch SCSS sang CSS:
 ```bash
 npx sass scss/style.scss style.css
 ```
+# Câu C1 — Phân tích trang web thực: YouTube
+## Trang web chọn
+Trang được chọn: YouTube
+Các kích thước kiểm tra:
+- Mobile: 375px
+- Tablet: 768px
+- Desktop: 1440px
+---
+## Mobile — 375px
+### Navigation thay đổi thế nào?
+Ở màn hình mobile, navigation được rút gọn.  
+Các mục menu lớn không hiển thị đầy đủ như desktop.  
+Giao diện ưu tiên icon, thanh tìm kiếm và các nút chức năng cơ bản.
+### Lưới content mấy cột?
+Video hiển thị chủ yếu theo dạng:
+```text
+1 cột
+```
+Mỗi video nằm một hàng để dễ xem trên màn hình nhỏ.
+### Elements nào bị ẩn trên mobile?
+Một số phần thường bị ẩn hoặc thu gọn:
+- Sidebar menu bên trái
+- Một số text của navigation
+- Một số nút phụ
+- Layout nhiều cột
+### Font size có thay đổi không?
+Có thể có thay đổi nhẹ.  
+Font trên mobile thường nhỏ/gọn hơn để phù hợp màn hình hẹp, nhưng vẫn đủ dễ đọc.
+
+---
+##Tablet — 768px
+### Navigation thay đổi thế nào?
+Ở tablet, navigation rộng hơn mobile.  
+Một số icon/menu có thể xuất hiện lại, nhưng sidebar vẫn có thể bị thu gọn.
+### Lưới content mấy cột?
+Video thường hiển thị khoảng:
+```text
+2 cột
+```
+Màn hình tablet đủ rộng để chia content thành nhiều cột hơn mobile.
+### Elements nào bị ẩn?
+Một số thành phần phụ vẫn có thể bị ẩn:
+- Sidebar đầy đủ
+- Một số text phụ
+- Một số nút ít quan trọng
+### Font size có thay đổi không?
+Font có thể lớn hơn mobile một chút hoặc giữ gần giống desktop.
+---
+## Desktop — 1440px
+### Navigation thay đổi thế nào?
+Ở desktop, navigation hiển thị đầy đủ hơn:
+- Logo
+- Thanh tìm kiếm lớn
+- Các icon chức năng
+- Sidebar bên trái
+- Menu điều hướng rõ ràng
+### Lưới content mấy cột?
+Video hiển thị nhiều cột, thường khoảng:
+```text
+4 cột
+```
+Tùy kích thước màn hình và zoom trình duyệt.
+### Elements nào bị ẩn trên mobile nhưng hiện ở desktop?
+Các thành phần hiện lại trên desktop:
+- Sidebar trái
+- Menu đầy đủ
+- Thanh tìm kiếm rộng
+- Nhiều cột video
+- Text mô tả/menu phụ
+### Font size có thay đổi không?
+Có thể có thay đổi nhẹ.  
+Desktop thường có nhiều không gian nên font và khoảng cách layout dễ nhìn hơn.
+---
+## Media Queries tìm trong DevTools
+Trong DevTools → tab Elements → Styles, có thể tìm thấy các rule dạng:
+```css
+@media (max-width: 768px) {
+    ...
+}
+```
+hoặc:
+```css
+@media (min-width: 1024px) {
+    ...
+}
+```
+Ý nghĩa:
+- `max-width`: áp dụng CSS khi màn hình nhỏ hơn hoặc bằng kích thước đó
+- `min-width`: áp dụng CSS khi màn hình lớn hơn hoặc bằng kích thước đó
+## 5. Nhận xét chung
+YouTube sử dụng responsive design để thay đổi layout theo kích thước màn hình.
+- Mobile: ưu tiên 1 cột, ẩn bớt sidebar/menu
+- Tablet: tăng lên khoảng 2 cột
+- Desktop: hiện sidebar và nhiều cột video
+- Navigation thay đổi từ đầy đủ sang dạng rút gọn
+- Một số thành phần bị ẩn trên mobile để tiết kiệm không gian
