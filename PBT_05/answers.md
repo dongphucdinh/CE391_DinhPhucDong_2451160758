@@ -146,3 +146,60 @@ Màn hình rất lớn
 5–6 cột
 ```
 để tận dụng không gian màn hình lớn.
+
+#### Câu A3: 
+| Chiều rộng màn hình | `.container` width |
+|---|---|
+| 375px (iPhone SE) | 100% |
+| 600px | 540px |
+| 800px | 720px |
+| 1000px | 960px |
+| 1400px | 1140px |
+## Giải thích
+### 375px
+Không media query nào được kích hoạt vì:
+```css
+375 < 576
+```
+nên:
+```css
+.container {
+    width: 100%;
+}
+```
+### 600px
+Thoả:
+```css
+@media (min-width: 576px)
+```
+nên:
+```css
+width: 540px;
+```
+### 800px
+Thoả:
+```css
+@media (min-width: 768px)
+```
+nên:
+```css
+width: 720px;
+```
+### 1000px
+Thoả:
+```css
+@media (min-width: 992px)
+```
+nên:
+```css
+width: 960px;
+```
+### 1400px
+Thoả:
+```css
+@media (min-width: 1200px)
+```
+nên:
+```css
+width: 1140px;
+```
