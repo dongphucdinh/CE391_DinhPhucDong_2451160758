@@ -305,3 +305,10 @@ style.scss
 style.css
 ```
 Browser sẽ đọc file `.css`.
+
+---
+## Lệnh compile SCSS (Bài B3)
+Lệnh đã sử dụng để biên dịch SCSS sang CSS:
+```bash
+npx sass scss/style.scss style.css
+```

@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: $font-primary;
+    background-color: $body-bg-color;
+    color: $text-color;
+    font-size: 14px;
+
+    @include respond-to($breakpoint-tablet) {
+        font-size: 15px;
+    }
+
+    @include respond-to($breakpoint-desktop) {
+        font-size: 16px;
+    }
+}
+
+.header {
+    background-color: $primary-color;
+    color: $surface-color;
+    padding: $spacing-sm;
+    @include flex-center(space-between, center);
+
+    .logo {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .hamburger {
+        font-size: 28px;
+
+        @include respond-to($breakpoint-tablet) {
+            display: none;
+        }
+    }
+
+    .nav {
+        display: none;
+
+        @include respond-to($breakpoint-tablet) {
+            display: flex;
+            gap: $spacing-lg;
+
+            a {
+                color: $surface-color;
+                text-decoration: none;
+                font-weight: bold;
+
+                &:hover {
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+}
+
+.page {
+    padding: $spacing-sm;
+
+    @include respond-to($breakpoint-desktop) {
+        max-width: $max-page-width;
+        margin: $spacing-xl auto;
+        display: grid;
+        grid-template-columns: $sidebar-width 1fr $sidebar-width;
+        gap: $spacing-md;
+    }
+}
+
+.sidebar {
+    display: none;
+
+    @include respond-to($breakpoint-tablet) {
+        display: block;
+        @include panel($spacing-sm);
+        margin-bottom: $spacing-md;
+    }
+
+    label {
+        @include respond-to($breakpoint-tablet) {
+            margin-right: $spacing-md;
+        }
+
+        @include respond-to($breakpoint-desktop) {
+            display: block;
+            margin: 12px 0;
+        }
+    }
+}
+
+.ads {
+    display: none;
+
+    @include respond-to($breakpoint-desktop) {
+        display: block;
+        @include panel($spacing-md);
+        margin-bottom: 0;
+    }
+}
+
+.products {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-sm;
+
+    @include respond-to($breakpoint-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to($breakpoint-desktop) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card {
+    background-color: $surface-color;
+    padding: $spacing-sm;
+    border-radius: $radius-lg;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    @include card-shadow;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: $radius-md;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        color: $price-color;
+        font-weight: bold;
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        @include card-shadow(0.18);
+    }
+
+    &.featured {
+        border: 2px solid $primary-color;
+    }
+}
+
+.footer {
+    background-color: $secondary-color;
+    color: $muted-text-color;
+    text-align: center;
+    padding: $spacing-md;
+}
