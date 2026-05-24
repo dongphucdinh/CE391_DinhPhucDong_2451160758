@@ -99,3 +99,142 @@ Layout mobile đã đúng từ:
 ```html
 col-12
 ```
+# Câu A2 — Utilities & Components
+## 1. Giải thích class `d-none d-md-block`
+```html
+d-none d-md-block
+```
+### Ý nghĩa
+```html
+d-none
+```
+- Ẩn element:
+```css
+display: none;
+```
+```html
+d-md-block
+```
+- Từ breakpoint `md` trở lên (`≥768px`):
+```css
+display: block;
+```
+### Kết quả
+| Kích thước màn hình | Hiển thị? |
+|---|---|
+| < 768px | Ẩn |
+| ≥ 768px | Hiện |
+### Use case
+Ví dụ:
+- Ẩn sidebar trên mobile
+- Chỉ hiện menu desktop trên tablet/laptop
+---
+# 2. 5 spacing utilities
+Bootstrap spacing:
+```text
+m = margin
+p = padding
+t = top
+b = bottom
+s = start (left)
+e = end (right)
+x = left + right
+y = top + bottom
+```
+---
+## mt-3
+```html
+mt-3
+```
+- Margin top mức 3
+```css
+margin-top: 1rem;
+```
+### Use case
+Tạo khoảng cách phía trên element.
+---
+## mb-4
+```html
+mb-4
+```
+- Margin bottom mức 4
+```css
+margin-bottom: 1.5rem;
+```
+### Use case
+Tạo khoảng cách phía dưới.
+---
+## px-4
+```html
+px-4
+```
+- Padding trái + phải mức 4
+```css
+padding-left: 1.5rem;
+padding-right: 1.5rem;
+```
+### Use case
+Tăng khoảng cách ngang bên trong element.
+---
+## py-2
+```html
+py-2
+```
+- Padding trên + dưới mức 2
+```css
+padding-top: 0.5rem;
+padding-bottom: 0.5rem;
+```
+### Use case
+Tăng chiều cao button/card.
+---
+## mb-auto
+```html
+mb-auto
+```
+- Margin bottom tự động.
+### Use case
+Dùng trong Flexbox để đẩy element sang vị trí khác.
+Ví dụ:
+```css
+margin-top: auto;
+```
+đẩy nút xuống đáy card.
+---
+# 3. Sự khác nhau giữa container classes
+## .container
+```html
+<div class="container">
+```
+### Đặc điểm
+- Có max-width theo từng breakpoint
+- Responsive
+- Có margin auto căn giữa
+### Use case
+Layout website thông thường.
+---
+## .container-fluid
+```html
+<div class="container-fluid">
+```
+### Đặc điểm
+- Luôn rộng 100%
+- Full width mọi kích thước màn hình
+### Use case
+Hero banner, full-width section.
+---
+## .container-md
+```html
+<div class="container-md">
+```
+### Đặc điểm
+- Nhỏ hơn `md`:
+```text
+width: 100%
+```
+- Từ `md` trở lên:
+```text
+có max-width như container
+```
+### Use case
+Mobile full-width nhưng desktop căn giữa đẹp hơn.
