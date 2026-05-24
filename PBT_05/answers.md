@@ -71,3 +71,78 @@ Kết quả:
 - Tối ưu hiệu năng cho thiết bị nhỏ
 - Giúp website responsive tốt hơn
 - Tránh tình trạng phải sửa quá nhiều từ layout desktop xuống mobile
+
+# Câu A2 — Breakpoints
+| Breakpoint | Kích thước | Thiết bị đại diện | Ví dụ lưới sản phẩm |
+|---|---|---|---|
+| Extra Small (XS) | < 576px | Điện thoại nhỏ | 1 cột |
+| Small (SM) | ≥ 576px | Điện thoại lớn | 2 cột |
+| Medium (MD) | ≥ 768px | Tablet | 2–3 cột |
+| Large (LG) | ≥ 992px | Laptop | 3–4 cột |
+| Extra Large (XL) | ≥ 1200px | Desktop lớn | 4 cột |
+| XXL | ≥ 1400px | Màn hình rất lớn | 5–6 cột |
+## Giải thích
+### XS (<576px)
+Thiết bị:
+```text
+Điện thoại nhỏ
+```
+Nên dùng:
+```text
+1 cột
+```
+để dễ đọc và bấm trên màn hình nhỏ.
+--
+### SM (≥576px)
+Thiết bị:
+```text
+Điện thoại lớn
+```
+Nên dùng:
+```text
+2 cột
+```
+để tận dụng không gian màn hình hơn.
+---
+### MD (≥768px)
+Thiết bị:
+```text
+Tablet
+```
+Nên dùng:
+```text
+2–3 cột
+```
+vì tablet có chiều ngang lớn hơn mobile.
+
+---
+### LG (≥992px)
+Thiết bị:
+```text
+Laptop
+```
+Nên dùng:
+```text
+3–4 cột
+```
+để hiển thị nhiều sản phẩm hơn.
+### XL (≥1200px)
+Thiết bị:
+```text
+Desktop lớn
+```
+Nên dùng:
+```text
+4 cột
+```
+để layout rộng và cân đối.
+### XXL (≥1400px)
+- Thiết bị:
+```text
+Màn hình rất lớn
+```
+- Nên dùng:
+```text
+5–6 cột
+```
+để tận dụng không gian màn hình lớn.
