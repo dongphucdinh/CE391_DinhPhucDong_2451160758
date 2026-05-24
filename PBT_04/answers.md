@@ -149,3 +149,57 @@ Có 6 items nên:
 +------+
 ````
 - Item 7 nằm ở cột đầu tiên của hàng thứ 3.
+
+# Câu C1 — Flexbox vs Grid: Khi nào dùng gì? 
+## 1. Navigation bar ngang
+**Dùng: Flexbox**
+- Vì navbar là layout theo **1 chiều ngang**: logo bên trái, menu ở giữa, buttons bên phải.
+- Flexbox phù hợp để căn giữa theo chiều dọc bằng:
+````
+align-items: center;
+````
+= và chia khoảng cách ngang bằng:
+````
+justify-content: space-between;
+````
+## 2. Lưới ảnh Instagram
+**Dùng: Grid**
+= Vì đây là layout dạng **2 chiều** gồm hàng và cột.
+= Ví dụ 3 cột đều nhau:
+````
+grid-template-columns: repeat(3, 1fr);
+````
+- Số ảnh không biết trước thì Grid sẽ tự động đẩy ảnh xuống hàng tiếp theo.
+## 3. Layout blog: main content + sidebar
+**Dùng: Grid**
+- Vì layout blog là bố cục trang gồm nhiều vùng rõ ràng: main content và sidebar.
+- Grid giúp chia cột dễ hơn, ví dụ:
+````
+grid-template-columns: 1fr 300px;
+````
+## 4. Footer với 4 cột thông tin
+**Dùng: Grid hoặc Flexbox**
+- Nên dùng **Grid** nếu muốn chia đều 4 cột rõ ràng.
+= Ví dụ:
+````
+grid-template-columns: repeat(4, 1fr);
+````
+= Có thể dùng Flexbox nếu footer chỉ cần xếp các nhóm theo 1 hàng ngang đơn giản.
+## 5. Card sản phẩm
+**Dùng: Flexbox**
+- Vì nội dung trong card xếp theo **1 chiều dọc**:
+````
+Ảnh
+Tên + giá
+Nút mua
+````
+- Để nút luôn dính đáy card, dùng:
+````
+.card {
+    display: flex;
+    flex-direction: column;
+}
+.card button {
+    margin-top: auto;
+}
+````
