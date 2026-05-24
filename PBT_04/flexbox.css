@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    height: 70px;
+    background-color: #1f2937;
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.auth {
+    display: flex;
+    gap: 20px;
+}
+.menu a,
+.auth a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.menu a:hover,
+.auth a:hover {
+    color: #facc15;
+    text-decoration: underline;
+}
+.products {
+    width: 1200px;
+    margin: 40px auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card {
+    flex: 0 0 calc(25% - 20px);
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+.card h3 {
+    margin: 15px 0 5px;
+}
+.card p {
+    color: red;
+    font-weight: bold;
+}
+.card button {
+    margin-top: auto;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.card button:hover {
+    background-color: #1d4ed8;
+}
