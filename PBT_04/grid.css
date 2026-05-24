@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+}
+
+.page {
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr) 200px;
+    gap: 20px;
+}
+
+.header,
+.hero,
+.footer {
+    grid-column: 1 / -1;
+}
+
+.header {
+    background-color: #1f2937;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.hero {
+    background-color: #dbeafe;
+    padding: 50px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.sidebar,
+.ads {
+    background-color: #e0f2fe;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.sidebar label {
+    display: block;
+    margin: 12px 0;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.product {
+    background-color: white;
+    min-height: 140px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.featured {
+    grid-column: span 2;
+    background-color: #fff7ed;
+    border: 2px solid #f97316;
+}
+
+.ad-box {
+    background-color: white;
+    height: 220px;
+    border: 2px dashed #999;
+    display: grid;
+    place-items: center;
+}
+
+.footer {
+    background-color: #111827;
+    color: #ddd;
+    text-align: center;
+    padding: 20px;
+}
