@@ -203,3 +203,105 @@ nên:
 ```css
 width: 1140px;
 ```
+# Câu A4 — SCSS Basics
+## 1. Variable
+SCSS cho phép tạo biến để lưu màu sắc, font, khoảng cách...
+### Ví dụ
+```scss
+$primary-color: #805ad5;
+$radius: 8px;
+.button {
+    background-color: $primary-color;
+    border-radius: $radius;
+}
+```
+### Lợi ích
+- Chỉ cần sửa 1 chỗ
+- Toàn bộ project tự cập nhật
+- Dễ maintain
+## 2. Nesting
+SCSS cho phép viết CSS lồng nhau theo cấu trúc HTML.
+### Ví dụ
+```scss
+.navbar {
+    background: black;
+    ul {
+        display: flex;
+        li {
+            margin-right: 20px;
+            a {
+                color: white;
+                &:hover {
+                    color: yellow;
+                }
+            }
+        }
+    }
+}
+```
+### Lợi ích
+- Code gọn hơn
+- Dễ đọc hơn
+- Bám sát cấu trúc HTML
+## 3. Mixins
+Mixin giống như hàm CSS dùng lại nhiều lần.
+### Ví dụ
+```scss
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero {
+    @include flex-center;
+    height: 100vh;
+}
+```
+### Lợi ích
+- Tái sử dụng code
+- Giảm lặp CSS
+- Viết responsive nhanh hơn
+---
+## 4. @extend / Inheritance
+`@extend` cho phép kế thừa style từ class khác.
+### Ví dụ
+```scss
+.button {
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    @extend .button;
+    background: blue;
+}
+```
+### Lợi ích
+- Dùng lại style có sẵn
+- Tránh lặp code
+- Dễ maintain
+## 5. Tại sao trình duyệt KHÔNG đọc được file .scss?
+Trình duyệt chỉ hiểu:
+- HTML
+- CSS
+- JavaScript
+SCSS là ngôn ngữ mở rộng của CSS nên browser không hiểu trực tiếp file `.scss`.
+## 6. Cần bước gì để chuyển SCSS → CSS?
+Cần dùng **SCSS Compiler** để compile:
+```text
+SCSS → CSS
+```
+Ví dụ:
+- Live Sass Compiler (VS Code)
+- Webpack
+- Vite
+- Sass CLI
+Sau khi compile:
+```scss
+style.scss
+```
+- tạo ra:
+```css
+style.css
+```
+Browser sẽ đọc file `.css`.
