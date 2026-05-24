@@ -238,3 +238,98 @@ có max-width như container
 ```
 ### Use case
 Mobile full-width nhưng desktop căn giữa đẹp hơn.
+# Câu C1 — Tùy biến Bootstrap
+## 1. Đổi màu `$primary` sang `#E63946`
+Bootstrap dùng SASS variables để quản lý theme colors.
+Muốn đổi màu primary, cần:
+- Cài Bootstrap source SCSS
+- Dùng Sass compiler
+- Override biến `$primary`
+- Compile lại SCSS → CSS
+---
+## 2. Quy trình thực hiện
+### Bước 1 — Cài Bootstrap SCSS
+Ví dụ dùng npm:
+```bash
+npm install bootstrap
+```
+---
+### Bước 2 — Tạo file SCSS riêng
+Ví dụ:
+```scss
+custom.scss
+```
+---
+### Bước 3 — Override biến `$primary`
+```scss
+$primary: #E63946;
+```
+---
+### Bước 4 — Import Bootstrap
+```scss
+$primary: #E63946;
+@import "node_modules/bootstrap/scss/bootstrap";
+```
+---
+### Bước 5 — Compile SCSS → CSS
+Ví dụ:
+```bash
+sass custom.scss custom.css
+```
+hoặc dùng:
+- Live Sass Compiler
+- Vite
+- Webpack
+---
+## 3. Cần công cụ gì?
+Cần:
+- Sass compiler
+- Bootstrap SCSS source files
+Ví dụ:
+- Live Sass Compiler
+- Sass CLI
+- Webpack
+- Vite
+---
+## 4. Tại sao KHÔNG nên override trực tiếp?
+Ví dụ không nên:
+```css
+.btn-primary {
+    background: red;
+}
+```
+### Vì sao không tốt?
+Cách này chỉ sửa riêng `.btn-primary`.
+Nhưng Bootstrap còn dùng `$primary` cho:
+- links
+- alerts
+- badges
+- borders
+- forms
+- pagination
+- dropdowns
+- nhiều component khác
+Kết quả:
+- giao diện không đồng bộ
+- chỗ đỏ chỗ xanh
+- khó maintain
+---
+## 5. Tại sao nên dùng SASS variables?
+Ví dụ:
+```scss
+$primary: #E63946;
+```
+Bootstrap sẽ tự cập nhật toàn bộ component liên quan.
+### Ưu điểm
+- Theme đồng bộ
+- Dễ maintain
+- Chỉ sửa 1 chỗ
+- Responsive/theme system hoạt động đúng
+- Professional workflow
+---
+## 6. Kết luận
+Nên dùng:
+```scss
+$primary
+```
+thay vì override từng class riêng lẻ để giữ hệ thống theme Bootstrap đồng nhất và dễ bảo trì.
