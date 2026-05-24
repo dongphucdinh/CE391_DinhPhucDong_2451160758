@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    padding: 30px;
+}
+h1 {
+    text-align: center;
+}
+.products {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 40px;
+}
+.card {
+    width: 300px;
+    background-color: white;
+    border-radius: 14px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+.image-box {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+.card:hover .image-box img {
+    transform: scale(1.1);
+}
+.card h2,
+.card p {
+    padding: 0 20px;
+}
+.card p {
+    color: red;
+    font-weight: bold;
+}
+.card button {
+    margin: 10px 20px 0;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+.card button:hover {
+    background-color: #facc15;
+    color: #111827;
+    transform: scale(1.05);
+}
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #ddd;
+    border-top: 6px solid #2563eb;
+    border-radius: 50%;
+    margin: 30px auto;
+
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+
+    animation: fadeIn 0.8s ease forwards;
+}
+.fade-in:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.fade-in:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.fade-in:nth-child(3) {
+    animation-delay: 0.5s;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
