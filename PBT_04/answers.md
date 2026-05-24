@@ -203,3 +203,104 @@ Nút mua
     margin-top: auto;
 }
 ````
+# Câu C2 — Debug Flexbox
+## Lỗi 1: Cards không đều chiều cao, nút "Mua" bị nhảy lên/xuống
+### Nguyên nhân
+- Các card có nội dung dài ngắn khác nhau nên chiều cao không đều.  
+- Nút "Mua" nằm ngay sau nội dung nên nếu phần text dài/ngắn khác nhau thì nút sẽ bị lệch vị trí.
+### Code sửa
+````
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card {
+    width: 30%;
+    margin: 1.5%;
+
+    display: flex;
+    flex-direction: column;
+}
+.card img {
+    width: 100%;
+}
+.card h3 {
+    font-size: 18px;
+}
+.card .btn {
+    padding: 10px;
+    margin-top: auto;
+}
+````
+### Giải thích
+Dùng:
+````
+display: flex;
+flex-direction: column;
+````
+- Để card xếp nội dung theo chiều dọc.
+Dùng
+````
+margin-top: auto;
+````
+- Cho nút để đẩy nút xuống đáy card.
+---
+## Lỗi 2: Muốn item nằm giữa cả ngang lẫn dọc nhưng vẫn dính góc trái trên
+### Nguyên nhân
+ `.hero` đã có `display: flex`, nhưng chưa có thuộc tính căn giữa.
+- Mặc định Flexbox sẽ để item ở đầu container:
+````
+justify-content: flex-start;
+align-items: stretch;
+````
+### Code sửa
+````
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-content {
+    text-align: center;
+}
+````
+### Giải thích
+Dùng:
+````
+justify-content: center;
+````
+- Để căn giữa theo chiều ngang.
+Dùng:
+````
+align-items: center;
+````
+- Để căn giữa theo chiều dọc.
+---
+## Lỗi 3: Sidebar bị co lại khi content quá dài
+### Nguyên nhân
+- Trong Flexbox, các item mặc định có thể bị co lại vì:
+````
+flex-shrink: 1;
+````
+- Nên khi `.content` quá dài, `.sidebar` có thể bị ép nhỏ hơn `250px`.
+### Code sửa
+````
+.layout {
+    display: flex;
+}
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+.content {
+    flex: 1;
+}
+````
+### Giải thích
+Dùng:
+````
+flex-shrink: 0;
+````
+- Để sidebar không bị co lại.
+= Khi đó sidebar luôn giữ đúng chiều rộng `250px`, còn `.content` chiếm phần còn lại.
