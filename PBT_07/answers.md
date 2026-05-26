@@ -156,3 +156,44 @@ if (" ") console.log("H");      // In
 - `null` và `0` là falsy
 - `-1` khác 0 nên truthy
 - `" "` chứa dấu cách nên không rỗng - truthy
+# Câu A5 — Template Literals
+## Cách 1
+### Code cũ
+```js
+var greeting = "Xin chào " + name + "! Bạn " + age + " tuổi.";
+```
+### Template Literal
+```js
+var greeting = `Xin chào ${name}! Bạn ${age} tuổi.`;
+```
+---
+## Cách 2
+### Code cũ
+```js
+var url = "https://api.example.com/users/" + userId + "/orders?page=" + page;
+```
+### Template Literal
+```js
+var url = `https://api.example.com/users/${userId}/orders?page=${page}`;
+```
+---
+## Cách 3
+### Code cũ
+```js
+var html = "<div class=\"card\">" +
+    "<h2>" + title + "</h2>" +
+    "<p>" + description + "</p>" +
+    "<span>Giá: " + price + "đ</span>" +
+    "</div>";
+```
+### Template Literal
+```js
+var html = `
+<div class="card">
+    <h2>${title}</h2>
+    <p>${description}</p>
+    <span>Giá: ${price}đ</span>
+</div>
+`;
+```
+---
