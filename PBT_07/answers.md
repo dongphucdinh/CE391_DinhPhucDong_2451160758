@@ -107,3 +107,19 @@ console.log({} + []);            // 0
 - `[]` chuyển thành `""`
 - `{}` chuyển thành `"[object Object]"`
 ---
+# Câu A3 — So sánh `==` vs `===`
+## Dự đoán
+```js
+console.log(5 == "5");              // true
+console.log(5 === "5");             // false
+console.log(null == undefined);     // true
+console.log(null === undefined);    // false
+console.log(NaN == NaN);            // false
+console.log(0 == false);            // true
+console.log(0 === false);           // false
+console.log("" == false);           // true
+```
+---
+# Giải thích
+- `==` → so sánh sau khi ép kiểu
+- `===` → so sánh cả value và type
