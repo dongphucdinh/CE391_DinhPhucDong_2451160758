@@ -83,3 +83,27 @@ Ngoài block: 1
 `let` có block scope.
 Biến `a` bên trong block `{}` là biến khác với `a` bên ngoài.
 ---
+# Câu A2 — Data Types & Coercion
+## Dự đoán kết quả
+```js
+console.log(typeof null);        // "object"
+console.log(typeof undefined);   // "undefined"
+console.log(typeof NaN);         // "number"
+console.log("5" + 3);            // "53"
+console.log("5" - 3);            // 2
+console.log("5" * "3");          // 15
+console.log(true + true);        // 2
+console.log([] + []);            // ""
+console.log([] + {});            // "[object Object]"
+console.log({} + []);            // 0
+```
+---
+# Giải thích
+- `typeof null` là `"object"` → bug lịch sử JS
+- `NaN` vẫn thuộc kiểu `number`
+- `"5" + 3` → nối chuỗi → `"53"`
+- `"5" - 3` → ép sang number → `2`
+- `true = 1` nên `true + true = 2`
+- `[]` chuyển thành `""`
+- `{}` chuyển thành `"[object Object]"`
+---
