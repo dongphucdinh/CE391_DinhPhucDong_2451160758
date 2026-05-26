@@ -99,10 +99,10 @@ console.log({} + []);            // 0
 ```
 ---
 # Giải thích
-- `typeof null` là `"object"` → bug lịch sử JS
+- `typeof null` là `"object"` bug lịch sử JS
 - `NaN` vẫn thuộc kiểu `number`
-- `"5" + 3` → nối chuỗi → `"53"`
-- `"5" - 3` → ép sang number → `2`
+- `"5" + 3` nối chuỗi `"53"`
+- `"5" - 3` ép sang number `2`
 - `true = 1` nên `true + true = 2`
 - `[]` chuyển thành `""`
 - `{}` chuyển thành `"[object Object]"`
@@ -121,5 +121,38 @@ console.log("" == false);           // true
 ```
 ---
 # Giải thích
-- `==` → so sánh sau khi ép kiểu
-- `===` → so sánh cả value và type
+- `==` : So sánh sau khi ép kiểu
+- `===` : So sánh cả value và type
+# Câu A4 — Truthy & Falsy
+# Tất cả giá trị Falsy trong JavaScript
+```js
+false
+0
+-0
+0n
+""
+null
+undefined
+NaN
+```
+Ngoài các giá trị trên, tất cả còn lại đều là Truthy.
+---
+# Dự đoán kết quả
+```js
+if ("0") console.log("A");      // In
+if ("") console.log("B");       // Không in
+if ([]) console.log("C");       // In
+if ({}) console.log("D");       // In
+if (null) console.log("E");     // Không in
+if (0) console.log("F");        // Không in
+if (-1) console.log("G");       // In
+if (" ") console.log("H");      // In
+```
+---
+# Giải thích
+- `"0"` là string nên truthy
+- `""` là chuỗi rỗng nên falsy
+- `[]` và `{}` đều truthy
+- `null` và `0` là falsy
+- `-1` khác 0 nên truthy
+- `" "` chứa dấu cách nên không rỗng - truthy
