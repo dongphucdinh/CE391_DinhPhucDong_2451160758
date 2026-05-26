@@ -197,3 +197,129 @@ var html = `
 `;
 ```
 ---
+# Câu C1 — Debug JavaScript
+## 1. Các lỗi trong code
+### Lỗi 1: Thiếu dấu `;`
+```js
+return "Phần trăm giảm không hợp lệ"
+```
+Nên viết:
+```js
+return "Phần trăm giảm không hợp lệ";
+```
+JavaScript có thể tự thêm `;`, nhưng nên viết đầy đủ để tránh lỗi khó hiểu.
+---
+### Lỗi 2: Không kiểm tra `giaBan` có phải số không
+```js
+const gia = tinhGiaGiamGia("100000", 20)
+```
+`giaBan` đang là string `"100000"`, dễ gây lỗi do type coercion.
+Cách sửa:
+```js
+if (typeof giaBan !== "number" || isNaN(giaBan)) {
+    return "Giá bán không hợp lệ";
+}
+```
+---
+### Lỗi 3: Không kiểm tra `phanTramGiam` có phải số không
+Nếu `phanTramGiam` không phải number thì phép tính có thể sai.
+Cách sửa:
+```js
+if (typeof phanTramGiam !== "number" || isNaN(phanTramGiam)) {
+    return "Phần trăm giảm không hợp lệ";
+}
+```
+---
+### Lỗi 4: Dùng `=` thay vì `===`
+Code sai:
+```js
+if (giaSauGiam = 0) {
+```
+`=` là gán giá trị, không phải so sánh.
+Cách sửa:
+```js
+if (giaSauGiam === 0) {
+```
+---
+### Lỗi 5: Dùng `var` không cần thiết
+```js
+var giamGia = giaBan * phanTramGiam / 100;
+```
+Nên dùng `let` hoặc `const`.
+Vì `giamGia` không gán lại nên dùng:
+```js
+const giamGia = giaBan * phanTramGiam / 100;
+```
+---
+### Lỗi 6: Test truyền sai kiểu dữ liệu
+Code sai:
+```js
+const gia = tinhGiaGiamGia("100000", 20);
+```
+`"100000"` là string.
+Cách sửa:
+```js
+const gia = tinhGiaGiamGia(100000, 20);
+```
+---
+### Lỗi 7: Lỗi ẩn do `var` trong vòng lặp
+Code sai:
+```js
+for (var i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i);
+    }, 1000);
+}
+```
+Kết quả sẽ in:
+```js
+Item 5
+Item 5
+Item 5
+Item 5
+Item 5
+```
+Vì `var` có function scope, tất cả `setTimeout` dùng chung một biến `i`.
+Cách sửa:
+```js
+for (let i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i);
+    }, 1000);
+}
+```
+Khi dùng `let`, mỗi vòng lặp có một biến `i` riêng.
+---
+# Code sau khi sửa
+```js
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+    if (typeof giaBan !== "number" || isNaN(giaBan) || giaBan < 0) {
+        return "Giá bán không hợp lệ";
+    }
+    if (
+        typeof phanTramGiam !== "number" ||
+        isNaN(phanTramGiam) ||
+        phanTramGiam < 0 ||
+        phanTramGiam > 100
+    ) {
+        return "Phần trăm giảm không hợp lệ";
+    }
+    const giamGia = giaBan * phanTramGiam / 100;
+    const giaSauGiam = giaBan - giamGia;
+    if (giaSauGiam === 0) {
+        console.log("Sản phẩm miễn phí!");
+    }
+    return giaSauGiam;
+}
+// Test
+const gia = tinhGiaGiamGia(100000, 20);
+console.log("Giá sau giảm: " + gia + "đ");
+const gia2 = tinhGiaGiamGia(50000, 110);
+console.log("Giá: " + gia2);
+for (let i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i);
+    }, 1000);
+}
+```
+---
