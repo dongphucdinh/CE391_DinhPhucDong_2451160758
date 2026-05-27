@@ -83,3 +83,74 @@ Kết quả:
 ReferenceError
 ```
 ---
+# Câu A2
+## Đoạn 1
+```js
+function counter() {
+    let count = 0;
+    return {
+        increment: () => ++count,
+        decrement: () => --count,
+        getCount: () => count
+    };
+}
+const c = counter();
+console.log(c.increment());  
+console.log(c.increment());  
+console.log(c.increment());  
+console.log(c.decrement());  
+console.log(c.getCount());
+```
+## Dự đoán output
+```js
+1
+2
+3
+2
+2
+```
+---
+# Giải thích
+Biến `count` được giữ lại nhờ closure.
+- `increment()` tăng `count`
+- `decrement()` giảm `count`
+- `getCount()` trả về giá trị hiện tại
+`count` không bị mất sau khi `counter()` chạy xong.
+---
+## Đoạn 2
+```js
+for (var i = 0; i < 3; i++) {
+    setTimeout(() => console.log("var:", i), 100);
+}
+for (let j = 0; j < 3; j++) {
+    setTimeout(() => console.log("let:", j), 200);
+}
+```
+## Output sau 200ms
+```js
+var: 3
+var: 3
+var: 3
+let: 0
+let: 1
+let: 2
+```
+---
+# Giải thích
+## `var`
+`var` có function scope nên tất cả callback dùng chung biến `i`.
+Sau vòng lặp:
+```js
+i = 3
+```
+nên in:
+```js
+3 3 3
+```
+---
+## `let`
+`let` có block scope.
+Mỗi vòng lặp tạo một biến `j` riêng nên in:
+```js
+0 1 2
+```
