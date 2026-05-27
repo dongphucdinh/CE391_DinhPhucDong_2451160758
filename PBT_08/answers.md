@@ -154,3 +154,49 @@ Mỗi vòng lặp tạo một biến `j` riêng nên in:
 ```js
 0 1 2
 ```
+# Câu A3 — Array Methods
+```js
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+```
+---
+## 1. Lấy các số chẵn
+```js
+const evenNumbers = nums.filter(n => n % 2 === 0);
+```
+---
+## 2. Nhân mỗi số với 3
+```js
+const multiplyBy3 = nums.map(n => n * 3);
+```
+---
+## 3. Tính tổng tất cả
+```js
+const total = nums.reduce((sum, n) => sum + n, 0);
+```
+---
+## 4. Tìm số đầu tiên > 7
+```js
+const firstGreaterThan7 = nums.find(n => n > 7);
+```
+---
+## 5. Kiểm tra CÓ số > 10 không
+```js
+const hasGreaterThan10 = nums.some(n => n > 10);
+```
+---
+## 6. Kiểm tra TẤT CẢ đều > 0
+```js
+const allGreaterThan0 = nums.every(n => n > 0);
+```
+---
+## 7. Tạo mảng "Số X là [chẵn/lẻ]"
+```js
+const oddEvenText = nums.map(
+    n => `Số ${n} là ${n % 2 === 0 ? "chẵn" : "lẻ"}`
+);
+```
+---
+## 8. Đảo ngược mảng (không mutate gốc)
+```js
+const reversed = [...nums].reverse();
+```
