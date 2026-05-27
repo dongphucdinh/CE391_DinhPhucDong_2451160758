@@ -154,7 +154,7 @@ Mỗi vòng lặp tạo một biến `j` riêng nên in:
 ```js
 0 1 2
 ```
-# Câu A3 — Array Methods
+# Câu A3
 ```js
 const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 ```
@@ -200,3 +200,63 @@ const oddEvenText = nums.map(
 ```js
 const reversed = [...nums].reverse();
 ```
+# Câu A4
+## Dự đoán output
+```js
+const product = {
+    name: "iPhone 16",
+    price: 25990000,
+    specs: { ram: 8, storage: 256, color: "Titan" }
+};
+// Destructuring
+const { name, price, specs: { ram, color } } = product;
+console.log(name, price, ram, color);
+// "iPhone 16" 25990000 8 "Titan"
+console.log(specs);
+// ReferenceError
+```
+---
+# Giải thích
+`specs` không được tạo thành biến riêng.
+Chỉ destructuring:
+```js
+ram
+color
+```
+nên `specs` không tồn tại.
+---
+## Spread
+```js
+const updated = { ...product, price: 23990000, sale: true };
+console.log(updated.price);
+// 23990000
+console.log(updated.sale);
+// true
+console.log(product.price);
+// 25990000
+```
+---
+# Giải thích
+Spread tạo object mới.
+`updated.price` đổi nhưng `product.price` gốc không đổi.
+---
+## Spread Gotcha
+```js
+const copy = { ...product };
+copy.specs.ram = 16;
+console.log(product.specs.ram);
+// 16
+```
+---
+# Tại sao?
+Spread chỉ copy nông (shallow copy).
+`specs` vẫn tham chiếu cùng object trong memory.
+Nên sửa:
+```js
+copy.specs.ram
+```
+cũng làm:
+```js
+product.specs.ram
+```
+bị đổi theo.
