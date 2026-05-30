@@ -1,10 +1,11 @@
-
 function Footer() {
-    return (
-        <footer className="footer">
-            <p>© 2026 Dong Phuc. All rights reserved.</p>
-        </footer>
-    )
+  return (
+    <footer className="footer">
+      <div className="container">
+        <p>© 2026 Dinh Phuc Dong. Built with React and Vite.</p>
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

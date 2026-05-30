@@ -1,17 +1,24 @@
-
 function About() {
-    return (
-        <section id="about" className="section">
-            <div className="container">
-                <h2>About Me</h2>
-
-                <p>
-                    I am a student learning web development. I enjoy building
-                    clean, responsive websites using HTML, CSS, JavaScript and React.
-                </p>
-            </div>
-        </section>
-    )
+  return (
+    <section className="section about" id="about">
+      <div className="container two-column">
+        <div>
+          <p className="eyebrow">About</p>
+          <h2>Building useful web experiences from idea to interface.</h2>
+        </div>
+        <div className="section-copy">
+          <p>
+            I enjoy turning product requirements into clean layouts, reusable React components, and responsive pages
+            that work well on mobile and desktop.
+          </p>
+          <p>
+            My current focus is improving frontend fundamentals, component composition, and data-driven UI patterns in
+            React.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default About
+export default About;

@@ -1,26 +1,28 @@
-
 function Portfolio({ projects }) {
-    return (
-        <section id="portfolio" className="section">
-            <div className="container">
-                <h2>Portfolio</h2>
-
-                <div className="portfolio-grid">
-                    {projects.map((project) => (
-                        <div className="project-card" key={project.id}>
-                            <img src={project.image} alt={project.title} />
-
-                            <div className="project-content">
-                                <span>{project.category}</span>
-                                <h3>{project.title}</h3>
-                                <p>{project.description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
+  return (
+    <section className="section portfolio" id="portfolio">
+      <div className="container">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Portfolio</p>
+            <h2>Selected projects</h2>
+          </div>
+        </div>
+        <div className="project-grid">
+          {projects.map((project) => (
+            <article className="project-card" key={project.id}>
+              <img src={project.image} alt={`${project.title} preview`} />
+              <div className="project-content">
+                <span>{project.category}</span>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default Portfolio
+export default Portfolio;
