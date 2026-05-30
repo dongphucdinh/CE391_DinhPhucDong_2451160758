@@ -11,7 +11,7 @@ const products = [
     { id: 10, name: "ThinkPad X1", price: 32990000, category: "laptop", stock: 3, rating: 4.5 }
 ];
 function getInStock(products) {
-    return products.filter(product => product.stock > 0);git branch
+    return products.filter(product => product.stock > 0);
 }
 function filterProducts(products, category, minPrice, maxPrice) {
     return products.filter(product =>
