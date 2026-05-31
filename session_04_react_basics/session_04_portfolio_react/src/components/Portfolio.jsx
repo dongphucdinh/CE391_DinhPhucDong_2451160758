@@ -21,6 +21,18 @@ function Portfolio() {
             <h2>Selected projects</h2>
           </div>
         </div>
+        <div className={styles.filterGroup}>
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`${styles.filterBtn} ${filter === category ? styles.active : ''}`}
+              type="button"
+              onClick={() => setFilter(category)}
+            >
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </button>
+          ))}
+        </div>
         <div className={styles.portfolioGrid}>
           {items.map((project) => (
             <ProjectCard key={project.id} {...project} />
