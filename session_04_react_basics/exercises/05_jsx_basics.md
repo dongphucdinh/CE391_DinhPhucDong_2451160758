@@ -320,6 +320,118 @@ function ProjectCard({ title, category, image, description, tags, featured }) {
 
 ---
 
+## ✅ Giải pháp hoàn chỉnh
+
+### Phần A — portfolio_hero.html
+
+```jsx
+function PortfolioHero({ name, title, buttonText }) {
+  return (
+    <section className="hero">
+      <h1>Xin chào, tôi là {name}</h1>
+      <p>{title}</p>
+      <button>{buttonText}</button>
+    </section>
+  );
+}
+
+function SkillBadge({ name, level, color }) {
+  return (
+    <span className="skill-badge" style={{ background: color }}>
+      {name} <span className="level">({level}%)</span>
+    </span>
+  );
+}
+
+function SkillsSection({ skills }) {
+  return (
+    <section className="skills-section">
+      <h2>Kỹ năng</h2>
+      <div className="skills">
+        {skills.map((skill) => (
+          <SkillBadge key={skill.name} {...skill} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <PortfolioHero name="Minh" title="Frontend Developer" buttonText="Xem hồ sơ" />
+      <SkillsSection skills={skills} />
+    </>
+  );
+}
+```
+
+### Phần B — portfolio_projects.html
+
+```jsx
+function CategoryBadge({ category }) {
+  const className = category === 'web' ? 'cat-web' : category === 'mobile' ? 'cat-mobile' : 'cat-design';
+  const label = category.charAt(0).toUpperCase() + category.slice(1);
+  return <span className={`category ${className}`}>{label}</span>;
+}
+
+function ProjectCard({ title, category, image, description, tags, featured }) {
+  return (
+    <article className="project-card">
+      {featured && <div className="featured">⭐ Nổi bật</div>}
+      <img src={image} alt={title} />
+      <div className="info">
+        <CategoryBadge category={category} />
+        <h3>{title}</h3>
+        <p className="desc">{description}</p>
+        <div className="tags">
+          {tags.map((tag) => (
+            <span key={tag} className="tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ProjectList({ projects }) {
+  if (projects.length === 0) {
+    return <div className="empty-state">Chưa có dự án nào</div>;
+  }
+
+  const countWeb = projects.filter((project) => project.category === 'web').length;
+  const countMobile = projects.filter((project) => project.category === 'mobile').length;
+  const countDesign = projects.filter((project) => project.category === 'design').length;
+
+  return (
+    <>
+      <div className="project-grid">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} {...project} />
+        ))}
+      </div>
+      <div className="stats">
+        <span>Tổng dự án: {projects.length}</span>
+        <span>Web: {countWeb}</span>
+        <span>Mobile: {countMobile}</span>
+        <span>Design: {countDesign}</span>
+      </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <main>
+      <h1>🛠️ Dự án của Minh</h1>
+      <ProjectList projects={projects} />
+    </main>
+  );
+}
+```
+
+---
+
 ## 📝 Ghi chú cho giảng viên
 
 > **Bài này dạy 3 kỹ năng JSX cốt lõi:** Props passing (Phần A), Conditional rendering (featured badge), List rendering (.map()). Cả 3 sẽ xuất hiện liên tục trong các bài sau.
