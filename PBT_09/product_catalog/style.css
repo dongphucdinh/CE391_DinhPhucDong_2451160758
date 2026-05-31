@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+body.dark-mode {
+    background: #121212;
+    color: #f1f1f1;
+}
+.app {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.cart {
+    position: relative;
+    font-size: 26px;
+}
+.badge {
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 3px 7px;
+    border-radius: 50%;
+}
+.controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+input,
+select,
+button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+}
+input,
+select {
+    border: 1px solid #ccc;
+}
+button {
+    background: #4361ee;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+button:hover {
+    opacity: 0.85;
+}
+.category-btn.active {
+    background: #2a9d8f;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+}
+.card {
+    background: white;
+    color: #222;
+    border-radius: 14px;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.2s;
+    cursor: pointer;
+}
+body.dark-mode .card {
+    background: #1e1e1e;
+    color: #f1f1f1;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card img {
+    width: 100%;
+    border-radius: 12px;
+}
+.card h3 {
+    margin: 12px 0 8px;
+}
+.price {
+    color: #e63946;
+    font-weight: bold;
+}
+.stock {
+    font-size: 14px;
+    color: #2a9d8f;
+}
+.out-stock {
+    color: #e63946;
+}
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal {
+    width: 360px;
+    background: white;
+    color: #222;
+    padding: 20px;
+    border-radius: 16px;
+    position: relative;
+}
+body.dark-mode .modal {
+    background: #222;
+    color: #f1f1f1;
+}
+.modal img {
+    width: 100%;
+    border-radius: 12px;
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e63946;
+}
+.empty {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 40px;
+}
