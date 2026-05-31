@@ -1,4 +1,11 @@
-function Portfolio({ projects }) {
+import { useState } from 'react';
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard';
+import styles from './Portfolio.module.css';
+
+function Portfolio() {
+  const [items] = useState(projects);
+
   return (
     <section className="section portfolio" id="portfolio">
       <div className="container">
@@ -8,16 +15,9 @@ function Portfolio({ projects }) {
             <h2>Selected projects</h2>
           </div>
         </div>
-        <div className="project-grid">
-          {projects.map((project) => (
-            <article className="project-card" key={project.id}>
-              <img src={project.image} alt={`${project.title} preview`} />
-              <div className="project-content">
-                <span>{project.category}</span>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-              </div>
-            </article>
+        <div className={styles.portfolioGrid}>
+          {items.map((project) => (
+            <ProjectCard key={project.id} {...project} />
           ))}
         </div>
       </div>
