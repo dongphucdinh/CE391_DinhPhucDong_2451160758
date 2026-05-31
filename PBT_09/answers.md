@@ -134,3 +134,133 @@ inner
 outer
 ```
 Sự kiện được kích hoạt từ phần tử con rồi lan dần lên các phần tử cha.
+# Câu C1
+## Các lỗi tìm được
+### Lỗi 1: Sai tên sự kiện
+Code:
+```js
+document.querySelector("#decrementBtn").addEventListener("onclick", function() {
+```
+Sửa:
+```js
+document.querySelector("#decrementBtn").addEventListener("click", function() {
+```
+`addEventListener()` nhận tên sự kiện là `"click"` chứ không phải `"onclick"`.
+---
+### Lỗi 2: Dùng innerHTML để hiển thị số
+Code:
+```js
+countDisplay.innerHTML = count;
+```
+Sửa:
+```js
+countDisplay.textContent = count;
+```
+Vì chỉ hiển thị text nên dùng `textContent` an toàn và hiệu quả hơn.
+---
+### Lỗi 3: Gán sai cho countDisplay
+Code:
+```js
+countDisplay = count;
+```
+Sửa:
+```js
+countDisplay.textContent = count;
+```
+`countDisplay` là DOM element, không thể gán bằng số.
+---
+### Lỗi 4: Xóa history sai cách
+Code:
+```js
+historyList.innerHTML = null;
+```
+Sửa:
+```js
+historyList.innerHTML = "";
+```
+hoặc
+```js
+historyList.textContent = "";
+```
+---
+### Lỗi 5: Không gọi hàm remove()
+Code:
+```js
+item.remove;
+```
+Sửa:
+```js
+item.remove();
+```
+Thiếu dấu ngoặc nên hàm không được thực thi.
+---
+### Lỗi 6: Dữ liệu localStorage là string
+Code:
+```js
+count = localStorage.getItem("count");
+```
+Sửa:
+```js
+count = Number(localStorage.getItem("count")) || 0;
+```
+`getItem()` luôn trả về string.
+---
+### Lỗi 7: Không load lại history từ localStorage
+Code chỉ lưu:
+```js
+localStorage.setItem("history", historyList.innerHTML);
+```
+Nhưng không đọc lại khi tải trang.
+Sửa:
+```js
+historyList.innerHTML = localStorage.getItem("history") || "";
+```
+---
+### Lỗi 8: History sau khi load bị mất event click
+Khi dùng:
+```js
+historyList.innerHTML = ...
+```
+các `<li>` mới tạo sẽ không còn event listener.
+Nên dùng Event Delegation hoặc render lại danh sách từ dữ liệu.
+---
+## Code sau khi sửa
+```js
+const countDisplay = document.querySelector(".count");
+const historyList = document.getElementById("history");
+let count = Number(localStorage.getItem("count")) || 0;
+countDisplay.textContent = count;
+historyList.innerHTML = localStorage.getItem("history") || "";
+document.querySelector("#incrementBtn").addEventListener("click", () => {
+    count++;
+    countDisplay.textContent = count;
+    const li = document.createElement("li");
+    li.textContent = "Count changed to " + count;
+    li.addEventListener("click", function () {
+        deleteHistory(this);
+    });
+    historyList.appendChild(li);
+});
+document.querySelector("#decrementBtn").addEventListener("click", () => {
+    count--;
+    countDisplay.textContent = count;
+});
+document.querySelector("#resetBtn").addEventListener("click", () => {
+    count = 0;
+    countDisplay.textContent = count;
+    historyList.innerHTML = "";
+});
+function deleteHistory(element) {
+    element.remove();
+}
+document.querySelector("#clearHistory").addEventListener("click", () => {
+    const items = historyList.querySelectorAll("li");
+    items.forEach(item => {
+        item.remove();
+    });
+});
+window.addEventListener("beforeunload", () => {
+    localStorage.setItem("count", count);
+    localStorage.setItem("history", historyList.innerHTML);
+});
+```
