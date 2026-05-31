@@ -5,7 +5,7 @@ import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import { projects, skills } from './data/skills';
+import { skills } from './data/skills';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Hero />
         <About />
         <Skills skills={skills} />
-        <Portfolio projects={projects} />
+        <Portfolio />
         <Contact />
       </main>
       <Footer />
