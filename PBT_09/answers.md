@@ -103,3 +103,34 @@ Khi đó nội dung:
 ```
 sẽ chỉ được hiển thị như chữ bình thường, không được chạy như HTML.
 ---
+# Câu A3 - Event Bubbling
+## Khi click vào button
+Event xảy ra trên `button` trước, sau đó nổi bọt lên `inner` rồi `outer`.
+Output:
+```text
+BUTTON
+INNER
+OUTER
+```
+## Nếu dùng `e.stopPropagation()`
+```js
+document.querySelector("#btn").addEventListener("click", (e) => {
+    console.log("BUTTON");
+    e.stopPropagation();
+});
+```
+`stopPropagation()` ngăn sự kiện lan lên phần tử cha.
+Output:
+```text
+BUTTON
+```
+## Giải thích
+Cơ chế Event Bubbling:
+```text
+button
+  |
+inner
+  |
+outer
+```
+Sự kiện được kích hoạt từ phần tử con rồi lan dần lên các phần tử cha.
