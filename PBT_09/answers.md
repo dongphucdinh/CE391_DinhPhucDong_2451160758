@@ -264,3 +264,62 @@ window.addEventListener("beforeunload", () => {
     localStorage.setItem("history", historyList.innerHTML);
 });
 ```
+# Câu C2 - Performance
+## 1. Vì sao bind event lên 1000 elements là bad practice?
+Nếu gắn event riêng cho 1000 elements:
+```js
+items.forEach(item => {
+    item.addEventListener("click", handleClick);
+});
+```
+thì trình duyệt phải lưu 1000 event listeners.
+Điều này gây:
+- Tốn bộ nhớ hơn
+- Code khó quản lý
+- Khi thêm item mới phải bind event lại
+- Hiệu năng kém nếu danh sách lớn
+---
+## 2. Event Delegation giải quyết thế nào?
+Event Delegation là gắn event vào phần tử cha, rồi kiểm tra phần tử con được click.
+Ví dụ:
+```js
+const list = document.querySelector("#list");
+list.addEventListener("click", (e) => {
+    if (e.target.classList.contains("item")) {
+        console.log(e.target.textContent);
+    }
+});
+```
+Thay vì 1000 listeners, chỉ cần 1 listener trên cha.
+Nhờ cơ chế Event Bubbling, click từ item con sẽ nổi bọt lên cha.
+---
+## 3. Code ban đầu gây nhiều reflow
+```js
+for (let i = 0; i < 1000; i++) {
+    const div = document.createElement("div");
+    div.textContent = `Item ${i}`;
+    document.body.appendChild(div);
+}
+```
+Mỗi lần `appendChild()` vào `document.body`, trình duyệt có thể phải tính lại layout.
+Có 1000 lần append trực tiếp nên có thể gây nhiều reflow/repaint.
+---
+## 4. Refactor dùng DocumentFragment
+```js
+const fragment = document.createDocumentFragment();
+for (let i = 0; i < 1000; i++) {
+    const div = document.createElement("div");
+    div.textContent = `Item ${i}`;
+    fragment.appendChild(div);
+}
+document.body.appendChild(fragment);
+```
+---
+## 5. Vì sao nhanh hơn?
+`DocumentFragment` là vùng chứa tạm thời trong bộ nhớ, chưa gắn trực tiếp vào DOM thật.
+Khi thêm 1000 `div` vào `fragment`, trình duyệt chưa cần reflow layout trang.
+Sau đó chỉ append `fragment` vào `body` một lần:
+```js
+document.body.appendChild(fragment);
+```
+Vì vậy chỉ tác động DOM thật 1 lần, giúp nhanh hơn và mượt hơn.
