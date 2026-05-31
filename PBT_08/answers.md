@@ -317,11 +317,3 @@ console.log(miniArray.reduce([1, 2, 3, 4], (a, b) => a + b, 0));
 [3, 4]
 10
 ```
----
-## Độ phức tạp
-| Hàm | Time Complexity | Space Complexity |
-|------|------|------|
-| map | O(n) | O(n) |
-| filter | O(n) | O(n) |
-| reduce | O(n) | O(1) |
-Trong đó `n` là số phần tử của mảng.
