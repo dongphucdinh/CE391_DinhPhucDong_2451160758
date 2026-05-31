@@ -34,7 +34,7 @@ function Portfolio() {
           ))}
         </div>
         <div className={styles.portfolioGrid}>
-          {items.map((project) => (
+          {filteredItems.map((project) => (
             <ProjectCard key={project.id} {...project} />
           ))}
         </div>
