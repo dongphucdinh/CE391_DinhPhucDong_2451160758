@@ -247,28 +247,3 @@ export default FlowDemo;
 
 3. **Mở Console, click 5 lần. Console show bao nhiêu log?**
    - ✅ 6 log (1 render lần đầu + 5 lần từ 5 click)
-
----
-
-## ✅ Checklist
-
-- ✅ Hiểu component render lần đầu như thế nào
-- ✅ Phân biệt biến bình thường vs useState
-- ✅ Biết setState → re-render → UI cập nhật
-- ✅ Hiểu luồng: User action → setState → re-render
-
----
-
-## 🎓 Tóm tắt
-
-```jsx
-// ❌ SAI: Biến thường không trigger re-render
-let count = 0;
-count = 1;  // UI không đổi
-
-// ✅ ĐÚNG: useState trigger re-render
-const [count, setCount] = useState(0);
-setCount(1);  // UI cập nhật → component re-render → hiển thị giá trị mới
-```
-
-**Core concept:** React re-render (gọi lại component function) khi state thay đổi → JSX mới → UI cập nhật
